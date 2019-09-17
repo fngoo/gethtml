@@ -2,6 +2,7 @@
  
 a=$(cat httprobe.txt|wc -l) ; let ac=a/4 ; let dc=a/2 ; let rock=ac*3
 
+touch $output/3_html
 echo '#!/bin/bash'>getjs1.sh
 echo 'for((i=1;i<'$ac';i+=1)); do file=$(head -$i httprobe.txt |tail -1); output=$output; touch $output/3_html/$i.html; curl -L $file>>$output/3_html/$i.html; done'>>getjs1.sh
 echo '#!/bin/bash'>getjs2.sh
