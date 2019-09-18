@@ -1,5 +1,20 @@
 #!/bin/bash
- 
+
+x=8 ; input=httprobe.txt ; export x=8 ; export input=httprobe.txt
+length=`wc -l $input|grep -o -P ".*?(?=\ )"`
+#dir_num=$((x*x))
+if [ $length -lt $x ]
+then
+i=1
+mkdir $output/3_html
+a=$(cat httprobe.txt|wc -l)
+echo '#!/bin/bash'>getjs1.sh
+echo 'for i in '$a'; do file=$(head -$i httprobe.txt |tail -1); output=$output; touch $output/3_html/$i.html; curl -L $file>>$output/3_html/$i.html; done'>>getjs1.sh
+rm getjs1.sh
+
+
+else
+
 a=$(cat httprobe.txt|wc -l) ; let ac=a/4 ; let dc=a/2 ; let rock=ac*3
 
 mkdir $output/3_html
@@ -19,3 +34,4 @@ echo 'bash getjs3.sh'>>exe_getjs.sh
 echo 'bash getjs4.sh'>>exe_getjs.sh
 
 cat exe_getjs.sh | parallel --jobs 0 --progress --delay 1 ; rm getjs1.sh ; rm getjs2.sh ; rm getjs3.sh ; rm getjs4.sh ;  rm exe_getjs.sh
+fi
