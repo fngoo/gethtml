@@ -1,6 +1,6 @@
 #!/bin/bash
 
-x=8 ; input=httprobe.txt ; export x=8 ; export input=httprobe.txt
+x=4 ; input=httprobe.txt ; export x=4 ; export input=httprobe.txt
 length=`wc -l $input|grep -o -P ".*?(?=\ )"`
 #dir_num=$((x*x))
 if [ $length -lt $x ]
