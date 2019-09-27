@@ -16,7 +16,7 @@ rm getjs1.sh
 
 else
 
-a=$(cat httprobe.txt|wc -l) ; let ac=a/4 ; let dc=a/2 ; let rock=ac*3
+a=$(cat httprobe.txt|wc -l) ; ac=$((a/4)) ; dc=$((a/2)) ; rock=$((ac*3))
 
 mkdir $output/3_html
 echo '#!/bin/bash'>getjs1.sh
@@ -26,7 +26,7 @@ echo 'for((i='$ac';i<'$dc';i+=1)); do file=$(head -$i httprobe.txt |tail -1); ou
 echo '#!/bin/bash'>getjs3.sh
 echo 'for((i='$dc';i<'$rock';i+=1)); do file=$(head -$i httprobe.txt |tail -1); output=$output; touch $output/3_html/$i.html; curl -L $file>>$output/3_html/$i.html; done'>>getjs3.sh
 echo '#!/bin/bash'>getjs4.sh
-echo 'for((i='$rock';i<='$a';i+=1)); do file=$(head -$i httprobe.txt |tail -1); output=$output; touch $output/3_html/$i.html; curl -L $file>>$output/3_html/$i.html; done'>>getjs4.sh
+echo 'for((i='$rock';i<'$a';i+=1)); do file=$(head -$i httprobe.txt |tail -1); output=$output; touch $output/3_html/$i.html; curl -L $file>>$output/3_html/$i.html; done'>>getjs4.sh
 echo '#!/bin/bash'>exe_getjs.sh
 echo 'output=$output'>>exe_getjs.sh
 echo 'bash getjs1.sh'>>exe_getjs.sh
