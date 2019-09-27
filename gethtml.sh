@@ -34,5 +34,5 @@ echo 'bash getjs2.sh'>>exe_getjs.sh
 echo 'bash getjs3.sh'>>exe_getjs.sh
 echo 'bash getjs4.sh'>>exe_getjs.sh
 
-cat exe_getjs.sh | parallel --jobs 0 --progress --delay 1 ; rm getjs1.sh ; rm getjs2.sh ; rm getjs3.sh ; rm getjs4.sh ;  rm exe_getjs.sh
+cat exe_getjs.sh | parallel --jobs 0 --progress --delay 0.1 ; rm getjs1.sh ; rm getjs2.sh ; rm getjs3.sh ; rm getjs4.sh ;  rm exe_getjs.sh
 fi
