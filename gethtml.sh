@@ -9,7 +9,7 @@ i=1
 mkdir $output/3_html
 a=$(cat httprobe.txt|wc -l)
 echo '#!/bin/bash'>getjs1.sh
-echo 'for((i=1;i<'$a';i+=1)); do file=$(head -$i httprobe.txt |tail -1); output=$output; touch $output/3_html/$i.html; curl -L $file>>$output/3_html/$i.html; done'>>getjs1.sh
+echo 'for((i=1;i<'$a';i+=1)); do file=$(head -$i httprobe.txt |tail -1); output=$output; touch $output/3_html/$i.html; curl -L --speed-time 5 --speed-limit 1 $file>>$output/3_html/$i.html; done'>>getjs1.sh
 bash getjs1.sh
 rm getjs1.sh
 
