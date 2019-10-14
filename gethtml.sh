@@ -37,3 +37,4 @@ echo 'bash getjs4.sh'>>exe_getjs.sh
 
 cat exe_getjs.sh | parallel --jobs 0 --delay 0.1 ; rm getjs1.sh ; rm getjs2.sh ; rm getjs3.sh ; rm getjs4.sh ;  rm exe_getjs.sh
 fi
+sed -e "/%0d%0aheader:CRLF/d" httprobe.txt >> httprob1e.txt ; mv httprob1e.txt httprobe.txt
