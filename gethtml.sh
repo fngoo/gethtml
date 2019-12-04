@@ -9,3 +9,4 @@ for((i=1;i<=$a;i+=1)); do file=$(head -$i httprobe.txt |tail -1) ; echo "touch $
 cat exe.sh | parallel --jobs 0 --delay 0.1 --retries 1 ; rm exe.sh
 
 sed -e "/%0d%0aheader:CRLF/d" httprobe.txt >> httprob1e.txt ; mv httprob1e.txt httprobe.txt
+exit
